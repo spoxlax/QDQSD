@@ -53,11 +53,14 @@
     </div>
     <div class="row">
         <div class="col">
-            <p> {{ context }}</p>
+            <legend> We will send you an email once your account has been approved </legend>
+            <legend> {{ is_it }} </legend>
+            <p> {{ context}}</p>
             <div class="col-sm-6 col-12">
                 <form method="post">
                     {% csrf_token %}
                     {{ form }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
