@@ -1,15 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     {% load static %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="{% static 'js/bootstrap.min.js' %}"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"></script>
@@ -51,19 +48,11 @@
     <div>
         &nbsp
     </div>
-    <div class="row">
-        <div class="col">
-            <legend> We will send you an email once your account has been approved</legend>
-            <legend> {{ is_it }} </legend>
-            <p> {{ context }}</p>
-            <div class="col-sm-6 col-12">
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </div>
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">You've successfully signed in to Jumia HELP CENTER!</h4>
+        <p>Thank you for becoming a member please do not hesitate to contact us. .</p>
+        <hr>
+        <p class="mb-0">Remember, always try to restart your computer first <span style='font-size:25px;'>&#128514;</span>.</p>
     </div>
     <div>
         &nbsp
