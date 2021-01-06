@@ -1,53 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    {% load static %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
-          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="{% static 'js/bootstrap.min.js' %}"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
-
-
-    <title>Help Desk</title>
-</head>
-
-
-<body>
-<div class="container">
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">HELP DESK</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/login">LOGIN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/signup">SIGNUP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/faq">FAQ</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Find ticket" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+{% extends "base.html" %}
+{% block content %}
     <header>
         <!-- Intro settings -->
         <style>
@@ -84,14 +36,145 @@
         <!-- Background image -->
     </header>
 
-    <footer class="bg-light text-center text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2)">
-            © 2020 Copyright:
-            <a class="text-dark" href="#">Amer Assouli</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
-</div>
-</body>
-</html>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <!-- Required meta tags -->#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+{##}
+{#    <!-- Bootstrap CSS -->#}
+{#        {% load static %}#}
+{#        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"#}
+{#              integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">#}
+{#    <!-- Option 1: Bootstrap Bundle with Popper -->#}
+{#        <script src="{% static 'js/bootstrap.min.js' %}"#}
+{#                integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"#}
+{#                crossorigin="anonymous"></script>#}
+{##}
+{##}
+{#    <title>Help Desk</title>#}
+{#</head>#}
+{##}
+{##}
+{#<body>#}
+{##}
+{#<div class="container">#}
+{#    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">#}
+{#        <div class="container-fluid">#}
+{#            <a class="navbar-brand" href="/">HELP DESK</a>#}
+{#            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
+{#                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"#}
+{#                    aria-expanded="false" aria-label="Toggle navigation">#}
+{#                <span class="navbar-toggler-icon"></span>#}
+{#            </button>#}
+{#            <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                <ul class="navbar-nav me-auto mb-2 mb-lg-0">#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link active" aria-current="page" href="/login">LOGIN</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link active" aria-current="page" href="/signup">SIGNUP</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link active" aria-current="page" href="/faq">FAQ</a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#                <form class="d-flex">#}
+{#                    <input class="form-control me-2" type="search" placeholder="Find ticket" aria-label="Search">#}
+{#                    <button class="btn btn-outline-success" type="submit">Search</button>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+{#    </nav>#}
+{#    <header>#}
+{#        <!-- Intro settings -->#}
+{#        <style>#}
+{#            /* Default height for small devices */#}
+{#            #intro-example {#}
+{#                height: 400px;#}
+{#                width: 900px;#}
+{#            }#}
+{##}
+{#            /* Height for devices larger than 992px */#}
+{#            @media (min-width: 992px) {#}
+{#                #intro-example {#}
+{#                    height: 600px;#}
+{#                    width: 1296px;#}
+{#                }#}
+{#            }#}
+{#        </style>#}
+{##}
+{#        <!-- Background image -->#}
+{#        <div#}
+{#                id="intro-example"#}
+{#                class="p-5 text-center bg-image"#}
+{#                style="background-image: url('../static/helpdesk.jpg'); background-repeat:no-repeat;background-position: center;"#}
+{#        >#}
+{#            <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">#}
+{#                <div class="d-flex justify-content-center align-items-center h-100">#}
+{#                    <div class="text-white">#}
+{#                        <h1 class="mb-3">WELCOME TO JUMIA HELP HELPDESK</h1>#}
+{#                        <h5 class="mb-4">Our website is undergoing some maintenance. We'll be back soon.</h5>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- Background image -->#}
+{#    </header>#}
+{##}
+{#    <footer class="bg-light text-center text-lg-start">#}
+{#        <div class="text-center p-3" style="background-color: rgba(33,37,41,1)">#}
+{#            <div class="text-white">© 2021 Copyright&nbsp:&nbsp#}
+{#                <a class="text-white" href="#">Amer Assouli</a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </footer>#}
+{#</div>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"></script>#}
+{#</body>#}
+{##}
+{#</html>#}

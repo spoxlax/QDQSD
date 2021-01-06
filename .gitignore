@@ -4,3 +4,11 @@ venv/
 node_modules/
 .idea/
 uploaded_media/
+*/migrations/*.py
+/*/migrations/*.py
+*/migrations/
+/*/migrations/
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+**/**/migrations

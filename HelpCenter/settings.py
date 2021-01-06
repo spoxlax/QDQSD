@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'auth_me',
+    'ticket',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,7 @@ TEMPLATES = [
         },
     },
 ]
+AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'HelpCenter.wsgi.application'
 

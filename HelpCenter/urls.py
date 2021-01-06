@@ -22,5 +22,4 @@ urlpatterns = [
     path('faq/', faq_page, name="faq"),
     path('', home_page, name="home"),
     path('', include('auth_me.urls')),
-
 ]

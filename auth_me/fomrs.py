@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+from account.models import Account
 
 
 class LoginForm(forms.Form):
@@ -25,6 +25,10 @@ class SignupForm(forms.Form):
                                                        attrs={"class": "form-check", "id": "gridCheck1",
                                                               "label": " yes i am"}))
 
+    class Meta:
+        model = Account
+        fields = ("username", "email", "password", "password2", "Are_you_an_external_agent")
+
     def clean(self):
         data = self.cleaned_data
         password = self.cleaned_data.get('password')
@@ -35,13 +39,16 @@ class SignupForm(forms.Form):
 
     def clean_username(self):
         agent = self.cleaned_data.get('username')
-        qs = User.objects.filter(username=agent)
+        qs = Account.objects.filter(username=agent)
         if qs:
             raise forms.ValidationError("user is already in data base")
         return agent
 
     def clean_email(self):
         mail = self.cleaned_data.get('email')
+        qs = Account.objects.filter(email=mail)
         if '@jumia.com' not in mail:
             raise forms.ValidationError(" we don't accepte login with personal emails, please try with jumia email")
+        if qs:
+            raise forms.ValidationError("Email already in use")
         return mail
