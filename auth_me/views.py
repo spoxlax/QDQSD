@@ -45,8 +45,10 @@ def signup_page(request):
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
+            is_external = form.cleaned_data.get('Are_you_an_external_agent')
             name_resolver = solve(email)
             Account.objects.create_user(username=username, first_name=name_resolver.first_name,
-                                        last_name=name_resolver.last_name, email=email, password=password)
+                                        last_name=name_resolver.last_name, email=email, password=password,
+                                        is_external=is_external)
             return render(request, 'auth_me/signup_success.html', context)
     return render(request, 'auth_me/signup.html', context)

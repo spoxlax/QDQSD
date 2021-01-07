@@ -22,12 +22,11 @@ class SignupForm(forms.Form):
 
     Are_you_an_external_agent = forms.BooleanField(required=False,
                                                    widget=forms.CheckboxInput(
-                                                       attrs={"class": "form-check", "id": "gridCheck1",
-                                                              "label": " yes i am"}))
+                                                       attrs={"class": "form-check", "id": "gridCheck1"}))
 
     class Meta:
         model = Account
-        fields = ("username", "email", "password", "password2", "Are_you_an_external_agent")
+        fields = ("username", "email", "password", "password2", "is_external")
 
     def clean(self):
         data = self.cleaned_data
