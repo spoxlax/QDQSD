@@ -1,22 +1,62 @@
 from django.db import models
+# from account.models import Account
+from django.conf import settings
 
 
 # Create your models here.
+class Priority(models.Model):
+    COLOR = (
+        ('LOW', 'white'),
+        ('MEDIUM', 'blue'),
+        ('NORMAL', 'green'),
+        ('HIGH', 'orange'),
+        ('VERY-HIGH', 'RED'),
+    )
+    NAME = (
+        ('white', 'LOW'),
+        ('blue', 'MEDIUM'),
+        ('green', 'NORMAL'),
+        ('orange', 'HIGH'),
+        ('RED', 'VERY-HIGH'),
+    )
+    name = models.CharField(max_length=10, choices=NAME)
+    color = models.CharField(max_length=10, null=True, choices=COLOR)
+
+    def __str__(self):
+        return self.name
+
+
+class Status(models.Model):
+    name = models.CharField(max_length=150)
+    color = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=150)
+    color = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
+
+
 class Ticket(models.Model):
     subject = models.CharField(max_length=200)
-    content = models.TextField()
+    content = models.TextField(max_length=600)
     html = models.TextField()
     attachement = models.FileField()
-    status_id = models.CharField(max_length=200)
-    priority_id = models.CharField(max_length=200)
-    user_id = models.CharField(max_length=200)
-    agent_id = models.CharField(max_length=200)
-    category_id = models.CharField(max_length=200)
-    groupe_id = models.CharField(max_length=200)
-    company_id = models.CharField(max_length=200)
-    created_at = models.CharField(max_length=200)
-    updated_at = models.CharField(max_length=200)
-    completed_at = models.CharField(max_length=200)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE)
+    priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
+    user = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
+    completed_at = models.DateTimeField()
+
+    def __str__(self):
+        return self.subject + ' ' + self.status.name + ' ' + self.priority.name
 
     # key = models.CharField()
     # Titile = models.CharField()

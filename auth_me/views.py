@@ -7,7 +7,7 @@ from .name_resolver import resolver as solve
 
 # this fuction to test ( URLS, Rendring, REdirection, .... etc )
 def test(request):
-    return render(request, 'dashboard.html')
+    return render(request, '/Amer/home.html')
 
 
 # end Comment
@@ -27,7 +27,7 @@ def login_page(request):
             user_log = authenticate(request, username=log, email=log, password=password)
             if user_log is not None:
                 login(request, user_log)
-                return redirect('/test')
+                return redirect('/')
             else:
                 print("error login")
     return render(request, 'auth_me/signup.html', context)

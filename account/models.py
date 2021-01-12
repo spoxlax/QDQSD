@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager)
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, email, username, password=None,first_name=None,last_name=None, is_external=None):
+    def create_user(self, email, username, password=None, first_name=None, last_name=None, is_external=None):
         if not email:
             raise ValueError('Users must have an email address')
         if not username:
@@ -14,7 +14,6 @@ class MyAccountManager(BaseUserManager):
             last_name=last_name,
             username=username,
             email=self.normalize_email(email),
-            password=password,
             is_external=is_external,
         )
 
@@ -25,12 +24,12 @@ class MyAccountManager(BaseUserManager):
     def create_superuser(self, email, username, password):
         user = self.create_user(
             email=self.normalize_email(email),
-            password=password,
             username=username,
         )
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
+        user.set_password(password)
         user.save(using=self._db)
         return user
 
@@ -47,12 +46,18 @@ class Account(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    is_external = models.BooleanField(default=False)
+    is_external = models.BooleanField(default=False, null=True, blank=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
     objects = MyAccountManager()
+
+    def get_full_name(self):
+        try:
+            return self.first_name + ' ' + self.last_name
+        except:
+            return ' Full Name'
 
     def __str__(self):
         if self.first_name and self.last_name:
