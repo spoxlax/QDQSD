@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { I18nextProvider } from 'react-i18next';
 import 'antd/dist/antd.css';
 
-import Router from './router';
+import Router from './landing_page/router';
 import i18n from './translation';
 import * as serviceWorker from './serviceWorker';
 
